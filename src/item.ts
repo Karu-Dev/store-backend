@@ -9,7 +9,7 @@ export interface Item {
   seller: string;
   seller_image: string;
 }
-export interface sentItem{
+export interface SentItem{
   id: number;
   title: string;
   description: string;
@@ -18,9 +18,9 @@ export interface sentItem{
   seller: string;
   sellerImage: string;
 }
-export interface pageStructure{
+export interface PageStructure{
   page:number,
   totalPages:number;
   totalItems:number;
-  items:sentItem[]
+  items:SentItem[]
 }
