@@ -12,9 +12,7 @@ app.use(bodyParser.json());
 // Register our routes in app
 app.use('/', routes);
 
-// app.use((req,res)=>{
-//     res.sendStatus(404).send("404")
-// })
+
 // Start our server
 let server: Server;
 export const start = () => {
@@ -29,5 +27,4 @@ export const stop = () => server.close()
 if (process.argv[2] === "start"){
     start();
 }
-// start()
 

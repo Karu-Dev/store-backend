@@ -11,7 +11,7 @@ interface Server {
 interface ServerList {
   servers: Server[]
 }
-// console.log("Directory:", csvFilePath);
+
 export class ItemsController {
   static errorFrequency: number = 0
   static server: ServerList = {
@@ -132,7 +132,6 @@ export class ItemsController {
     csv().fromFile(csvFilePath).then((myObj) => {
       const line = myObj.find(line => line.id === id)
       if (line) {
-        // console.log(`Line quantity is ${line.quantity}`)
         if (line.quantity) {
           res.json(parseInt(line.quantity))
           return
@@ -175,7 +174,6 @@ export class ItemsController {
           return
         }
         res.send(`${totalPrice.toFixed(2)} EUR`)
-        // res.send(`${(quantity*price).toFixed(2)} EUR`)
         return;
       } else {
         res.sendStatus(404)
@@ -189,7 +187,6 @@ export class ItemsController {
         for (let x in req.body.servers) {
           if (Object.keys(req.body.servers[x]).length === 2) {
             if (typeof req.body.servers[x].name === "string" && req.body.servers[x].name.length > 0) {
-              // console.log(req.body)
               if (typeof req.body.servers[x].errorFrequency === "number" && req.body.servers[x].errorFrequency >= 0 && req.body.servers[x].errorFrequency <= 10) {
                 continue;
               } else {
@@ -211,7 +208,6 @@ export class ItemsController {
       }
       console.log(req.body)
       ItemsController.server = req.body
-      // console.log(ItemsController.server)
       res.send(ItemsController.server)
       return
     } else {
